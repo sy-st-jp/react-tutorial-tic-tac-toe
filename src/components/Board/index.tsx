@@ -9,13 +9,15 @@ const initialSquareValues = Array<SquareValue>(9).fill(null);
 export const Board: FC = () => {
 	const [isXTurn, setIsXTurn] = useState<boolean>(true);
 	const [squareValues, setSquareValues] = useState<SquareValue[]>(initialSquareValues);
+	const [winner, setWinner] = useState<SquareValue>(null);
 
 	const handleClick = (index: SquareIndex) => () => {
-		if (squareValues[index] || calculateWinner(squareValues)) return;
+		if (squareValues[index] || winner) return;
 		const newValue: Exclude<SquareValue, null> = isXTurn ? "X" : "O";
 		const nextSquareValues = squareValues.map((value, i) => (i === index ? newValue : value));
 		setSquareValues(nextSquareValues);
 		setIsXTurn(!isXTurn);
+		setWinner(calculateWinner(nextSquareValues));
 	};
 
 	return (

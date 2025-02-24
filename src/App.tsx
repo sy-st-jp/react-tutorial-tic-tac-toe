@@ -1,5 +1,6 @@
 import { FC } from 'react'
+import {Board} from "./components/Board";
 
-const App: FC = () => <div>tic-tac-toe</div>
+const App: FC = () => <Board/>
 
 export default App

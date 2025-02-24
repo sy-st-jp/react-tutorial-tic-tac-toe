@@ -20,8 +20,12 @@ export const Board: FC = () => {
 		setWinner(calculateWinner(nextSquareValues));
 	};
 
+	const currentPlayer: Exclude<SquareValue, null> = isXTurn ? "X" : "O";
+	const statusText = winner ? `Winner: ${winner}` : `Current player: ${currentPlayer}`;
+
 	return (
 		<>
+			<div className="status">{statusText}</div>
 			<div className="board-row">
 				<Square value={squareValues[0]} onClick={handleClick(0)} />
 				<Square value={squareValues[1]} onClick={handleClick(1)} />

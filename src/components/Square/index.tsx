@@ -1,6 +1,5 @@
 import { type FC, useState } from "react";
-
-type SquareValue = string | null;
+import type { SquareValue } from "../../types/SquareValue";
 
 export const Square: FC = () => {
 	const [value, setValue] = useState<SquareValue>(null);

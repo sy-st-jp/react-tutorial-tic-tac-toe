@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import {Board} from "./components/Board";
+import {Game} from "./components/Game";
 
-const App: FC = () => <Board/>
+const App: FC = () => <Game />
 
 export default App

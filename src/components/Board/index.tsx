@@ -6,6 +6,7 @@ import { Square } from "../Square";
 const initialSquareValues = Array<SquareValue>(9).fill(null);
 
 export const Board: FC = () => {
+	const [isXTurn, setIsXTurn] = useState<boolean>(true);
 	const [squareValues, setSquareValues] = useState<SquareValue[]>(initialSquareValues);
 
 	const handleClick = (index: SquareIndex) => () => {

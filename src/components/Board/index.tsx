@@ -6,6 +6,12 @@ const initialSquareValues = Array<SquareValue>(9).fill(null);
 
 export const Board: FC = () => {
 	const [squareValues, setSquareValues] = useState<SquareValue[]>(initialSquareValues);
+
+	const handleClick = (index: number) => () => {
+		const nextSquareValues = squareValues.map((value, i) => (i === index ? "X" : value));
+		setSquareValues(nextSquareValues);
+	};
+
 	return (
 		<>
 			<div className="board-row">

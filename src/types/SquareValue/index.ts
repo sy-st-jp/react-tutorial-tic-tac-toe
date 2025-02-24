@@ -1,1 +1,1 @@
-export type SquareValue = string | null;
+export type SquareValue = "X" | "O" | null;

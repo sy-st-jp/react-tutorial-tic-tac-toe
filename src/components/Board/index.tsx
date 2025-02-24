@@ -2,6 +2,7 @@ import { type FC, useState } from "react";
 import type { SquareIndex } from "../../types/SquareIndex";
 import type { SquareValue } from "../../types/SquareValue";
 import { Square } from "../Square";
+import { calculateWinner } from "./modules/calculateWinner";
 
 const initialSquareValues = Array<SquareValue>(9).fill(null);
 
@@ -10,7 +11,7 @@ export const Board: FC = () => {
 	const [squareValues, setSquareValues] = useState<SquareValue[]>(initialSquareValues);
 
 	const handleClick = (index: SquareIndex) => () => {
-		if (squareValues[index]) return;
+		if (squareValues[index] || calculateWinner(squareValues)) return;
 		const newValue: Exclude<SquareValue, null> = isXTurn ? "X" : "O";
 		const nextSquareValues = squareValues.map((value, i) => (i === index ? newValue : value));
 		setSquareValues(nextSquareValues);

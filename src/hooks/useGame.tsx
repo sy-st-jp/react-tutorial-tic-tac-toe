@@ -8,7 +8,7 @@ export const useGame = () => {
 	const [history, setHistory] = useState<SquareValue[][]>([initialSquareValues]);
 	const [currentIndex, setCurrentIndex] = useState<number>(0);
 
-	const isXTurn = history.length % 2 === 0;
+	const isXTurn = currentIndex % 2 === 0;
 	const currentSquareValues = history[currentIndex];
 	const winner = calculateWinner(currentSquareValues);
 

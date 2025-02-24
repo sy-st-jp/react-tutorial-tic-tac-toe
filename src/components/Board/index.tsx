@@ -10,6 +10,7 @@ export const Board: FC = () => {
 	const [squareValues, setSquareValues] = useState<SquareValue[]>(initialSquareValues);
 
 	const handleClick = (index: SquareIndex) => () => {
+		if (squareValues[index]) return;
 		const newValue: Exclude<SquareValue, null> = isXTurn ? "X" : "O";
 		const nextSquareValues = squareValues.map((value, i) => (i === index ? newValue : value));
 		setSquareValues(nextSquareValues);

@@ -1,9 +1,14 @@
 import {FC} from "react";
 
-export const Square: FC = () => {
+type Props = {
+    value: string
+}
+
+export const Square: FC<Props> = (props) => {
+    const { value } = props
     return (
         <button className="square" type="button">
-            X
+            { value }
         </button>
     )
 }

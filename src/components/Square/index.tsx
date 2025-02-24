@@ -1,6 +1,6 @@
 import type { FC } from "react";
 
-export const Square: FC = () => (
+export const Board: FC = () => (
 	<>
 		<div className="board-row">
 			<button className="square" type="button">

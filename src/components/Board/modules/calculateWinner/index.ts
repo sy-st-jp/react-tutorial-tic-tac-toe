@@ -11,8 +11,9 @@ export const calculateWinner = (squares: SquareValue[]) => {
 		[0, 4, 8],
 		[2, 4, 6],
 	];
-	return lines.some((line) => {
+	const completedLine = lines.find((line) => {
 		const [a, b, c] = line;
 		return squares[a] && squares[a] === squares[b] && squares[a] === squares[c];
 	});
+	return completedLine ? squares[completedLine[0]] : null;
 };

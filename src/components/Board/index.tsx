@@ -1,22 +1,29 @@
-import type { FC } from "react";
-import { Square } from "../Square/Square.tsx";
+import { type FC, useState } from "react";
+import { Square } from "../Square";
 
-export const Board: FC = () => (
-	<>
-		<div className="board-row">
-			<Square />
-			<Square />
-			<Square />
-		</div>
-		<div className="board-row">
-			<Square />
-			<Square />
-			<Square />
-		</div>
-		<div className="board-row">
-			<Square />
-			<Square />
-			<Square />
-		</div>
-	</>
-);
+type SquareValue = string | null;
+
+const initialSquareValues = Array<SquareValue>(9).fill(null);
+
+export const Board: FC = () => {
+	const [squareValues, setSquareValues] = useState<SquareValue[]>(initialSquareValues);
+	return (
+		<>
+			<div className="board-row">
+				<Square />
+				<Square />
+				<Square />
+			</div>
+			<div className="board-row">
+				<Square />
+				<Square />
+				<Square />
+			</div>
+			<div className="board-row">
+				<Square />
+				<Square />
+				<Square />
+			</div>
+		</>
+	);
+};

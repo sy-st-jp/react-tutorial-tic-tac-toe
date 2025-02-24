@@ -1,23 +1,23 @@
-import { type FC, useState } from "react";
+import type { FC } from "react";
 import type { SquareIndex } from "../../types/SquareIndex";
 import type { SquareValue } from "../../types/SquareValue";
 import { Square } from "../Square";
-import { calculateWinner } from "./modules/calculateWinner";
 
-const initialSquareValues = Array<SquareValue>(9).fill(null);
+type Props = {
+	isXTurn: boolean;
+	squareValues: SquareValue[];
+	onPlay: (nextSquare: SquareValue[]) => void;
+	winner: SquareValue;
+};
 
-export const Board: FC = () => {
-	const [isXTurn, setIsXTurn] = useState<boolean>(true);
-	const [squareValues, setSquareValues] = useState<SquareValue[]>(initialSquareValues);
-	const [winner, setWinner] = useState<SquareValue>(null);
+export const Board: FC<Props> = (props) => {
+	const { isXTurn, squareValues, onPlay, winner } = props;
 
 	const handleClick = (index: SquareIndex) => () => {
 		if (squareValues[index] || winner) return;
 		const newValue: Exclude<SquareValue, null> = isXTurn ? "X" : "O";
 		const nextSquareValues = squareValues.map((value, i) => (i === index ? newValue : value));
-		setSquareValues(nextSquareValues);
-		setIsXTurn(!isXTurn);
-		setWinner(calculateWinner(nextSquareValues));
+		onPlay(nextSquareValues);
 	};
 
 	const currentPlayer: Exclude<SquareValue, null> = isXTurn ? "X" : "O";

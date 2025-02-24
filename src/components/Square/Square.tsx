@@ -1,13 +1,16 @@
-import type { FC } from "react";
+import { type FC, useState } from "react";
 
-type Props = {
-	value: string;
-};
+type SquareValue = string | null;
 
-export const Square: FC<Props> = (props) => {
-	const { value } = props;
+export const Square: FC = () => {
+	const [value, setValue] = useState<SquareValue>(null);
+
+	const handleClick = () => {
+		setValue("X");
+	};
+
 	return (
-		<button className="square" type="button">
+		<button className="square" type="button" onClick={handleClick}>
 			{value}
 		</button>
 	);

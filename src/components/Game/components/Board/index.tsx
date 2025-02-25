@@ -6,15 +6,13 @@ import { isSquareIndex } from "./modules/isSquareIndex";
 
 type Props = {
 	squareValues: SquareValue[];
-	statusText: string;
 	handleClickSquare: (index: SquareIndex) => () => void;
 };
 
 export const Board: FC<Props> = (props) => {
-	const { squareValues, statusText, handleClickSquare } = props;
+	const { squareValues, handleClickSquare } = props;
 	return (
 		<>
-			<div className="status">{statusText}</div>
 			<div className="board">
 				{Array.from({ length: 9 }).map((_, i) => {
 					if (!isSquareIndex(i)) throw new Error("Invalid square index");

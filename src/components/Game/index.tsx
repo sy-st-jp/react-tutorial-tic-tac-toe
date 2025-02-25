@@ -6,12 +6,9 @@ export const Game: FC = () => {
 	const { currentSquareValues, moves, handleClickSquare, statusText } = useGame();
 	return (
 		<div className="game">
+			<p className="status">{statusText}</p>
 			<div className="game-board">
-				<Board
-					squareValues={currentSquareValues}
-					statusText={statusText}
-					handleClickSquare={handleClickSquare}
-				/>
+				<Board squareValues={currentSquareValues} handleClickSquare={handleClickSquare} />
 			</div>
 			<div className="game-info">
 				<ol>{moves}</ol>

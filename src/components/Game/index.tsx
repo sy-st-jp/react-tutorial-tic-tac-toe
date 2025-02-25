@@ -7,9 +7,7 @@ export const Game: FC = () => {
 	return (
 		<div className="game">
 			<p className="status">{statusText}</p>
-			<div className="game-board">
-				<Board squareValues={currentSquareValues} handleClickSquare={handleClickSquare} />
-			</div>
+			<Board squareValues={currentSquareValues} handleClickSquare={handleClickSquare} />
 			<div className="game-info">
 				<ol>
 					{history.map((_, index) => (

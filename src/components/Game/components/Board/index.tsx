@@ -12,14 +12,12 @@ type Props = {
 export const Board: FC<Props> = (props) => {
 	const { squareValues, handleClickSquare } = props;
 	return (
-		<>
-			<div className="board">
-				{Array.from({ length: 9 }).map((_, i) => {
-					if (!isSquareIndex(i)) throw new Error("Invalid square index");
-					// biome-ignore lint/suspicious/noArrayIndexKey: 盤面は固定であるため index を key として使用
-					return <Square key={i} value={squareValues[i]} onClick={handleClickSquare(i)} />;
-				})}
-			</div>
-		</>
+		<div className="board">
+			{Array.from({ length: 9 }).map((_, i) => {
+				if (!isSquareIndex(i)) throw new Error("Invalid square index");
+				// biome-ignore lint/suspicious/noArrayIndexKey: 盤面は固定であるため index を key として使用
+				return <Square key={i} value={squareValues[i]} onClick={handleClickSquare(i)} />;
+			})}
+		</div>
 	);
 };

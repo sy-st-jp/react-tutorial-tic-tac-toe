@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { useGame } from "../../hooks/useGame.tsx";
+import { useGame } from "../../hooks/useGame";
 import { Board } from "./components/Board";
 
 export const Game: FC = () => {

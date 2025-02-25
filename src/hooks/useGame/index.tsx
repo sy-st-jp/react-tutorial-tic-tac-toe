@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { calculateWinner } from "../components/Game/components/Board/modules/calculateWinner";
-import type { SquareIndex } from "../types/SquareIndex";
-import type { SquareValue } from "../types/SquareValue";
+import { calculateWinner } from "../../components/Game/components/Board/modules/calculateWinner";
+import type { SquareIndex } from "../../types/SquareIndex";
+import type { SquareValue } from "../../types/SquareValue";
 
 const initialSquareValues = Array<SquareValue>(9).fill(null);
 

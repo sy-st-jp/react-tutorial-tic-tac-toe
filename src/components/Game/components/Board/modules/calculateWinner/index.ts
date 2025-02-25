@@ -1,4 +1,4 @@
-import type { SquareValue } from "../../../../types/SquareValue";
+import type { SquareValue } from "../../../../../../types/SquareValue";
 
 export const calculateWinner = (squares: SquareValue[]) => {
 	const lines = [

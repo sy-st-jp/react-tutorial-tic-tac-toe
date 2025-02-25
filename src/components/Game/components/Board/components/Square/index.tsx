@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import type { SquareValue } from "../../types/SquareValue";
+import type { SquareValue } from "../../../../../../types/SquareValue";
 
 type Props = {
 	value: SquareValue;

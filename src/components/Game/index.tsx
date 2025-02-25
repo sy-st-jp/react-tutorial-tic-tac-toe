@@ -3,7 +3,7 @@ import { useGame } from "../../hooks/useGame";
 import { Board } from "./components/Board";
 
 export const Game: FC = () => {
-	const { currentSquareValues, moves, handleClickSquare, statusText } = useGame();
+	const { currentSquareValues, history, handleHistory, handleClickSquare, statusText } = useGame();
 	return (
 		<div className="game">
 			<p className="status">{statusText}</p>
@@ -11,7 +11,16 @@ export const Game: FC = () => {
 				<Board squareValues={currentSquareValues} handleClickSquare={handleClickSquare} />
 			</div>
 			<div className="game-info">
-				<ol>{moves}</ol>
+				<ol>
+					{history.map((_, index) => (
+						// biome-ignore lint/suspicious/noArrayIndexKey: 履歴の index は常に一意であるため key として使用
+						<li key={index}>
+							<button onClick={handleHistory(index)} type="button">
+								{index ? `Go to move #${index}` : "Go to game start"}
+							</button>
+						</li>
+					))}
+				</ol>
 			</div>
 		</div>
 	);

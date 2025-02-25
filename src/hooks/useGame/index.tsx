@@ -23,17 +23,6 @@ export const useGame = () => {
 		setCurrentIndex(index);
 	};
 
-	const moves = history.map((_, index) => {
-		return (
-			// biome-ignore lint/suspicious/noArrayIndexKey: 履歴の index は常に一意であるため key として使用
-			<li key={index}>
-				<button onClick={handleHistory(index)} type="button">
-					{index ? `Go to move #${index}` : "Go to game start"}
-				</button>
-			</li>
-		);
-	});
-
 	const handleClickSquare = (index: SquareIndex) => () => {
 		if (currentSquareValues[index] || winner) return;
 		const newValue: Exclude<SquareValue, null> = isXTurn ? "X" : "O";
@@ -51,7 +40,8 @@ export const useGame = () => {
 		isXTurn,
 		currentSquareValues,
 		winner,
-		moves,
+		history,
+		handleHistory,
 		handleClickSquare,
 		statusText,
 	};

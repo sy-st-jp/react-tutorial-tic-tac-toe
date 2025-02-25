@@ -1,17 +1,16 @@
 import type { FC } from "react";
 import { useGame } from "../../hooks/useGame.tsx";
-import { Board } from "../Board";
+import { Board } from "./components/Board";
 
 export const Game: FC = () => {
-	const { currentSquareValues, handlePlay, isXTurn, moves, winner } = useGame();
+	const { currentSquareValues, moves, handleClickSquare, statusText } = useGame();
 	return (
 		<div className="game">
 			<div className="game-board">
 				<Board
-					isXTurn={isXTurn}
 					squareValues={currentSquareValues}
-					onPlay={handlePlay}
-					winner={winner}
+					statusText={statusText}
+					handleClickSquare={handleClickSquare}
 				/>
 			</div>
 			<div className="game-info">

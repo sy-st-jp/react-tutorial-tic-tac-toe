@@ -7,7 +7,7 @@ type Props = {
 	handleHistory: (index: number) => () => void;
 };
 
-export const History: FC<Props> = (props) => {
+export const HistoryList: FC<Props> = (props) => {
 	const { history, handleHistory } = props;
 	return (
 		<ol>
